@@ -1,5 +1,6 @@
 package com.example.pokedex
 
+import PokemonListScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,7 +11,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.pokedex.pokemonlist.PokemonListScreen
 import com.example.pokedex.ui.theme.PokedexTheme
 import dagger.hilt.android.AndroidEntryPoint
 
