@@ -1,6 +1,5 @@
 package com.example.pokedex.repository
 
-import android.util.Log
 import com.example.pokedex.data.remote.PokeApi
 import com.example.pokedex.data.remote.responses.PokemonList
 import com.example.pokedex.data.remote.responses.PokemonResponse
@@ -23,13 +22,13 @@ class PokemonRepositoryImpl @Inject constructor(private val api: PokeApi): Pokem
     return@withContext Resource.Success(response)
   }
   
-  override suspend fun getPokemonDetails(name: String): Resource<PokemonResponse> {
+  override suspend fun getPokemonDetails(name: String): Resource<PokemonResponse> = withContext(Dispatchers.IO){
     val response = try {
       api.getPokemonDetails(name)
     } catch (e: Exception) {
-      return Resource.Error("An unknown error occurred.")
+      return@withContext Resource.Error("An unknown error occurred.")
     }
-    return Resource.Success(response)
+    return@withContext Resource.Success(response)
   }
   
 }
