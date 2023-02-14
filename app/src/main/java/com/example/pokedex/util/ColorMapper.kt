@@ -27,3 +27,15 @@ fun getTypeColor(type: String): Color {
   }
 }
 
+fun getStatColor(stat: String): Color {
+  return when(stat) {
+    "hp" -> HPColor
+    "attack" -> AtkColor
+    "defense" -> DefColor
+    "special-attack" -> SpAtkColor
+    "special-defense" -> SpDefColor
+    "speed" -> SpdColor
+    else -> TypeNormal
+  }
+}
+
